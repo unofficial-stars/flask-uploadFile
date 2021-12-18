@@ -1,7 +1,35 @@
 <!doctype html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#025928"> <!-- Border color for phone browsers in particular -->
     <title>Graph Result</title>
+    <script>
+    var newImagePie = new Image();
+    newImagePie.src = "http://localhost:5000/static/images/pie.png";
+
+    var newImageWc = new Image();
+    newImageWc.src = "http://localhost:5000/static/images/wordcloud.png";
+
+    function updateImage()
+    {
+    if(newImagePie.complete) {
+        document.getElementById("pie.png").src = newImagePie.src;
+        newImagePie = new Image();
+        newImagePie.src = "http://localhost:5000/static/images/pie.png?time=" + new Date();
+    }
+    
+    if(newImageWc.complete) {
+        document.getElementById("wordcloud.png").src = newImageWc.src;
+        newImageWc = new Image();
+        newImageWc.src = "http://localhost:5000/static/images/wordcloud.png?time=" + new Date();
+    }
+        setTimeout(updateImage, 1000);
+    }
+      // src="/static/images/wordcloud.png"
+      // src="/static/images/pie.png"
+    </script>
   </head>
   <body>
     <h1>Graph Result</h1>
@@ -9,7 +37,7 @@
       {% for image in images %}
         <section class="col-md-4 col-sm-6" style="background-color: white;">
           <a href="{{ url_for('static', filename='images/' + image) }}">{{ image }}
-            <img src="{{ url_for('static', filename='images/' + image) }}" alt="Graph" style="width:500px;height:500px;">
+            <img src="{{ url_for('static', filename='images/' + image) }}" id="{{ image }}" alt="Graph" style="width:500px;height:500px;">
           </a>
         </section>
       {% endfor %}

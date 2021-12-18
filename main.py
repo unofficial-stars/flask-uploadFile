@@ -31,6 +31,11 @@ def index():
     # images = os.listdir(os.path.join(app.static_folder, "images"))
     return render_template("index.html")
 
+@app.route("/update_image")
+def graph():
+    # Set The upload HTML template '\templates\index.html'
+    # images = os.listdir(os.path.join(app.static_folder, "images"))
+    return render_template("graph.html")
 
 # Get the uploaded files
 @app.route("/", methods=["POST"])
