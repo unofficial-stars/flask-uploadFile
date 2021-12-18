@@ -3,5 +3,7 @@ __pycache__
 reports.csv
 .venv
 
-static/files/**
-static/images/**
+static/files/*.csv
+static/files/*.txt
+static/files/*.py
+static/images/*.png
