@@ -31,7 +31,7 @@ def pie_graph_sentence(stem_sentences, raw_sentences):
 
 
 def process_text(file_path):
-    with open(file_path, "r") as f:
+    with open(file_path, "r", encoding="utf-8") as f:
         sentences = f.read()
     output = get_stem(sentences)
 
