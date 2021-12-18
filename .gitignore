@@ -1,0 +1,7 @@
+__pycache__
+
+reports.csv
+.venv
+
+static/files/**
+static/images/**

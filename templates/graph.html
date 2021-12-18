@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Graph Result</title>
+  </head>
+  <body>
+    <h1>Graph Result</h1>
+    <section class="row">
+      {% for image in images %}
+        <section class="col-md-4 col-sm-6" style="background-color: white;">
+          <a href="{{ url_for('static', filename='images/' + image) }}">{{ image }}
+            <img src="{{ url_for('static', filename='images/' + image) }}" alt="Graph" style="width:500px;height:500px;">
+          </a>
+        </section>
+      {% endfor %}
+    </section>
+  </body>
+</html>
